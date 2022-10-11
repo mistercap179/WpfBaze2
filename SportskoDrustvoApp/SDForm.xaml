@@ -1,0 +1,19 @@
+﻿<Window x:Class="SportskoDrustvoApp.SDForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportskoDrustvoApp"
+        mc:Ignorable="d"
+        Title="SDForm" Height="450" Width="800">
+    <Grid>
+        <Label Content="Create Sports Association"  x:Name="createSA" FontSize="25" HorizontalAlignment="Left" Height="79" Margin="160,19,0,0" VerticalAlignment="Top" Width="308"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="47" Margin="60,81,0,0" VerticalAlignment="Top" Width="118"/>
+        <TextBox HorizontalAlignment="Left" x:Name="textBoxName"  Height="28" Margin="147,84,0,0" TextWrapping="Wrap" Text="Enter Name" VerticalAlignment="Top" Width="134"/>
+        <Label Content="Place" HorizontalAlignment="Left" Height="31" Margin="62,132,0,0" VerticalAlignment="Top" Width="58"/>
+        <TextBox HorizontalAlignment="Left" x:Name="textBoxPlace" Height="34" Margin="145,131,0,0" TextWrapping="Wrap" Text="Enter Place" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Date of establishment" HorizontalAlignment="Left" Height="41" Margin="26,233,0,0" VerticalAlignment="Top" Width="139"/>
+        <Calendar HorizontalAlignment="Left" x:Name="calendar" Height="172" Margin="186,183,0,0" VerticalAlignment="Top" Width="197"/>
+        <Button Content="Create" x:Name="createSDForm" HorizontalAlignment="Left" Height="38" Margin="284,366,0,0" VerticalAlignment="Top" Width="230" Click="createSDForm_Click"/>
+    </Grid>
+</Window>

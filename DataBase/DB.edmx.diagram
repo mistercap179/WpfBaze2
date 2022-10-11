@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d9dea9b5e0f45649b5e90555ae9fede" Name="Diagram1">
+        <EntityTypeShape EntityType="SportskoDrustvoModel.ClanUpravnogOdbora" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.GeneralniDirektor" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Igrac" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Klub" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Predsjednik" Width="1.5" PointX="3.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Sacinjava" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.SD" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.SportskiDirektor" Width="1.5" PointX="3.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Teren" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Trener" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Trening" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Uprava" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.Vlada" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.PogledKlubTrenerIgraci" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportskoDrustvoModel.TreningView" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_GeneralniDirektor_ClanUpravnogOdbora" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Predsjednik_ClanUpravnogOdbora" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_SportskiDirektor_ClanUpravnogOdbora" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Igrac_Klub" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Klub_SD" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Sacinjava_Klub" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Teren_Klub" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Trener_Klub" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Sacinjava_Uprava" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Vlada_SD" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Vlada_Uprava" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.Je" ManuallyRouted="false" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Trening_Igrac" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Trening_Teren" />
+        <AssociationConnector Association="SportskoDrustvoModel.FK_Trening_Trener" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

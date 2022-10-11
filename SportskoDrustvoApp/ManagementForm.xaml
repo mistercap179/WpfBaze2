@@ -1,0 +1,30 @@
+﻿<Window x:Class="SportskoDrustvoApp.ManagementForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportskoDrustvoApp"
+        mc:Ignorable="d"
+        Title="ManagementForm" Height="450" Width="800">
+    <Grid>
+        <Label Content="Create Management" FontSize="23" HorizontalAlignment="Left" Height="60" Margin="180,14,0,0" VerticalAlignment="Top" Width="300"/>
+        <Label Content="Place" HorizontalAlignment="Left" Height="34" Margin="26,69,0,0" VerticalAlignment="Top" Width="102"/>
+        <TextBox HorizontalAlignment="Left" x:Name="textBoxSjediste" Height="28" Margin="126,67,0,0" TextWrapping="Wrap" Text="Enter place" VerticalAlignment="Top" Width="214"/>
+        <Label Content="Job description" HorizontalAlignment="Left" Height="34" Margin="28,125,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.284"/>
+                    <RotateTransform Angle="-0.308"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox HorizontalAlignment="Left" x:Name="textBoxOpis" Height="26" Margin="153,125,0,0" TextWrapping="Wrap" Text="Enter job desc" VerticalAlignment="Top" Width="177"/>
+        <Button Content="Create" x:Name="createManagement" HorizontalAlignment="Left" Height="60" Margin="240,322,0,0" VerticalAlignment="Top" Width="196" Click="createManagement_Click"/>
+        <Button Content="Create Sports Director" x:Name="createsportDir" HorizontalAlignment="Left" Height="50" Margin="34,188,0,0" VerticalAlignment="Top" Width="153" Click="createsportDir_Click"/>
+        <Button Content="Create President" x:Name="createPresident" HorizontalAlignment="Left" Height="48" Margin="232,190,0,0" VerticalAlignment="Top" Width="173" Click="createPresident_Click"/>
+        <Button Content="Create Managing Director" x:Name="createMD" HorizontalAlignment="Left" Height="45" Margin="483,193,0,0" VerticalAlignment="Top" Width="157" Click="createMD_Click"/>
+
+    </Grid>
+</Window>

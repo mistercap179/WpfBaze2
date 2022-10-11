@@ -1,0 +1,1605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SportskoDrustvoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClanUpravnogOdbora">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DR" Type="date" Nullable="false" />
+          <Property Name="SS" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeneralniDirektor">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="int" Nullable="false" />
+          <Property Name="US" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Igrac">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DR" Type="date" Nullable="false" />
+          <Property Name="IdKlub" Type="int" Nullable="false" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Je">
+          <Key>
+            <PropertyRef Name="BrCK" />
+            <PropertyRef Name="IdU" />
+          </Key>
+          <Property Name="BrCK" Type="int" Nullable="false" />
+          <Property Name="IdU" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klub">
+          <Key>
+            <PropertyRef Name="IdK" />
+            <PropertyRef Name="IdSD" />
+          </Key>
+          <Property Name="IdK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BT" Type="int" Nullable="false" />
+          <Property Name="SPORT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Predsjednik">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="int" Nullable="false" />
+          <Property Name="TM" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sacinjava">
+          <Key>
+            <PropertyRef Name="IdSacinjava" />
+          </Key>
+          <Property Name="IdU" Type="int" Nullable="false" />
+          <Property Name="IdK" Type="int" />
+          <Property Name="IdSD" Type="int" />
+          <Property Name="IdSacinjava" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SD">
+          <Key>
+            <PropertyRef Name="IdSD" />
+          </Key>
+          <Property Name="IdSD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SJ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DO" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SportskiDirektor">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="int" Nullable="false" />
+          <Property Name="OT" Type="int" />
+        </EntityType>
+        <EntityType Name="Teren">
+          <Key>
+            <PropertyRef Name="IdT" />
+          </Key>
+          <Property Name="IdT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOK" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IST" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KAP" Type="bigint" Nullable="false" />
+          <Property Name="NAZ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdK" Type="int" Nullable="false" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="JMBGT" />
+          </Key>
+          <Property Name="JMBGT" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IiP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRT" Type="int" Nullable="false" />
+          <Property Name="KAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdKL" Type="int" Nullable="false" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trening">
+          <Key>
+            <PropertyRef Name="IdTR" />
+            <PropertyRef Name="JMBGTR" />
+            <PropertyRef Name="JMBGI" />
+          </Key>
+          <Property Name="IdTR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TR" Type="time" Precision="7" Nullable="false" />
+          <Property Name="OT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdT" Type="int" Nullable="false" />
+          <Property Name="JMBGTR" Type="bigint" Nullable="false" />
+          <Property Name="JMBGI" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uprava">
+          <Key>
+            <PropertyRef Name="IdU" />
+          </Key>
+          <Property Name="IdU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOK" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vlada">
+          <Key>
+            <PropertyRef Name="IdVlada" />
+          </Key>
+          <Property Name="IdU" Type="int" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+          <Property Name="IdVlada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SportskoDrustvo.dbo.PogledKlubTrenerIgraci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PogledKlubTrenerIgraci">
+          <Key>
+            <PropertyRef Name="IdK" />
+            <PropertyRef Name="BT" />
+            <PropertyRef Name="SPORT" />
+            <PropertyRef Name="LIG" />
+            <PropertyRef Name="IdSD" />
+            <PropertyRef Name="JMBGT" />
+            <PropertyRef Name="IiP" />
+            <PropertyRef Name="BRT" />
+            <PropertyRef Name="KAR" />
+            <PropertyRef Name="IdKL" />
+            <PropertyRef Name="JMBG" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="KA" />
+            <PropertyRef Name="DR" />
+            <PropertyRef Name="IdKlub" />
+          </Key>
+          <Property Name="IdK" Type="int" Nullable="false" />
+          <Property Name="BT" Type="int" Nullable="false" />
+          <Property Name="SPORT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LIG" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+          <Property Name="JMBGT" Type="bigint" Nullable="false" />
+          <Property Name="IiP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRT" Type="int" Nullable="false" />
+          <Property Name="KAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdKL" Type="int" Nullable="false" />
+          <Property Name="JMBG" Type="bigint" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DR" Type="date" Nullable="false" />
+          <Property Name="IdKlub" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SportskoDrustvo.dbo.TreningView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TreningView">
+          <Key>
+            <PropertyRef Name="JMBG" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="KA" />
+            <PropertyRef Name="DR" />
+            <PropertyRef Name="IdKlub" />
+            <PropertyRef Name="IdSD" />
+            <PropertyRef Name="IdTR" />
+            <PropertyRef Name="TR" />
+            <PropertyRef Name="OT" />
+            <PropertyRef Name="IdT" />
+            <PropertyRef Name="JMBGTR" />
+            <PropertyRef Name="JMBGI" />
+            <PropertyRef Name="JMBGT" />
+            <PropertyRef Name="IiP" />
+            <PropertyRef Name="BRT" />
+            <PropertyRef Name="KAR" />
+            <PropertyRef Name="IdKL" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="LOK" />
+            <PropertyRef Name="IST" />
+            <PropertyRef Name="KAP" />
+            <PropertyRef Name="NAZ" />
+            <PropertyRef Name="IdK" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="JMBG" Type="bigint" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DR" Type="date" Nullable="false" />
+          <Property Name="IdKlub" Type="int" Nullable="false" />
+          <Property Name="IdSD" Type="int" Nullable="false" />
+          <Property Name="IdTR" Type="int" Nullable="false" />
+          <Property Name="TR" Type="time" Precision="7" Nullable="false" />
+          <Property Name="OT" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdT" Type="int" Nullable="false" />
+          <Property Name="JMBGTR" Type="bigint" Nullable="false" />
+          <Property Name="JMBGI" Type="bigint" Nullable="false" />
+          <Property Name="JMBGT" Type="bigint" Nullable="false" />
+          <Property Name="IiP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRT" Type="int" Nullable="false" />
+          <Property Name="KAR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdKL" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
+          <Property Name="LOK" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IST" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KAP" Type="bigint" Nullable="false" />
+          <Property Name="NAZ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdK" Type="int" Nullable="false" />
+          <Property Name="Expr3" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GeneralniDirektor_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GeneralniDirektor" Type="Self.GeneralniDirektor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="GeneralniDirektor">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Igrac_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Igrac" Type="Self.Igrac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Igrac">
+              <PropertyRef Name="IdKlub" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Je_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Je" Type="Self.Je" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="Je">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Je_Uprava">
+          <End Role="Uprava" Type="Self.Uprava" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Je" Type="Self.Je" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uprava">
+              <PropertyRef Name="IdU" />
+            </Principal>
+            <Dependent Role="Je">
+              <PropertyRef Name="IdU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Klub_SD">
+          <End Role="SD" Type="Self.SD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Klub" Type="Self.Klub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SD">
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Klub">
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Predsjednik_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Predsjednik" Type="Self.Predsjednik" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="Predsjednik">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sacinjava_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sacinjava" Type="Self.Sacinjava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Sacinjava">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sacinjava_Uprava">
+          <End Role="Uprava" Type="Self.Uprava" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sacinjava" Type="Self.Sacinjava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uprava">
+              <PropertyRef Name="IdU" />
+            </Principal>
+            <Dependent Role="Sacinjava">
+              <PropertyRef Name="IdU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportskiDirektor_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SportskiDirektor" Type="Self.SportskiDirektor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="SportskiDirektor">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teren_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Teren" Type="Self.Teren" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Teren">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trener_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trener" Type="Self.Trener" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Trener">
+              <PropertyRef Name="IdKL" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trening_Igrac">
+          <End Role="Igrac" Type="Self.Igrac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Igrac">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="JMBGI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trening_Teren">
+          <End Role="Teren" Type="Self.Teren" Multiplicity="1" />
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teren">
+              <PropertyRef Name="IdT" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="IdT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trening_Trener">
+          <End Role="Trener" Type="Self.Trener" Multiplicity="1" />
+          <End Role="Trening" Type="Self.Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trener">
+              <PropertyRef Name="JMBGT" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="JMBGTR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlada_SD">
+          <End Role="SD" Type="Self.SD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vlada" Type="Self.Vlada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SD">
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Vlada">
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlada_Uprava">
+          <End Role="Uprava" Type="Self.Uprava" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vlada" Type="Self.Vlada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uprava">
+              <PropertyRef Name="IdU" />
+            </Principal>
+            <Dependent Role="Vlada">
+              <PropertyRef Name="IdU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="udfKlub_Treneri_Igraci" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDKlub" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="IdK" Type="int" Nullable="false" />
+                <Property Name="BT" Type="int" Nullable="false" />
+                <Property Name="SPORT" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="LIG" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdSD" Type="int" Nullable="false" />
+                <Property Name="JMBGT" Type="bigint" Nullable="false" />
+                <Property Name="IiP" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="BRT" Type="int" Nullable="false" />
+                <Property Name="KAR" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdKL" Type="int" Nullable="false" />
+                <Property Name="JMBG" Type="bigint" Nullable="false" />
+                <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="KA" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="DR" Type="date" Nullable="false" />
+                <Property Name="IdKlub" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="udfTeren_Igraci" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDTeren" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="JMBG" Type="bigint" Nullable="false" />
+                <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="KA" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="DR" Type="date" Nullable="false" />
+                <Property Name="IdK" Type="int" Nullable="false" />
+                <Property Name="IdTR" Type="int" Nullable="false" />
+                <Property Name="TR" Type="time" Precision="7" Nullable="false" />
+                <Property Name="OT" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdT" Type="int" Nullable="false" />
+                <Property Name="JMBGT" Type="bigint" Nullable="false" />
+                <Property Name="JMBGI" Type="bigint" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="udfTeren_Treneri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDTeren" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="JMBGT" Type="bigint" Nullable="false" />
+                <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="BRT" Type="int" Nullable="false" />
+                <Property Name="KAR" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdK" Type="int" Nullable="false" />
+                <Property Name="IdTR" Type="int" Nullable="false" />
+                <Property Name="TR" Type="time" Precision="7" Nullable="false" />
+                <Property Name="OT" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdT" Type="int" Nullable="false" />
+                <Property Name="JMBGTR" Type="bigint" Nullable="false" />
+                <Property Name="JMBGI" Type="bigint" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="udfTrening" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDTrening" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="JMBG" Type="bigint" Nullable="false" />
+                <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="KA" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="DR" Type="date" Nullable="false" />
+                <Property Name="IdKlub" Type="int" Nullable="false" />
+                <Property Name="IdSD" Type="int" Nullable="false" />
+                <Property Name="IdTR" Type="int" Nullable="false" />
+                <Property Name="TR" Type="time" Precision="7" Nullable="false" />
+                <Property Name="OT" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdT" Type="int" Nullable="false" />
+                <Property Name="JMBGTR" Type="bigint" Nullable="false" />
+                <Property Name="JMBGI" Type="bigint" Nullable="false" />
+                <Property Name="JMBGT" Type="bigint" Nullable="false" />
+                <Property Name="IiP" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="BRT" Type="int" Nullable="false" />
+                <Property Name="KAR" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdKL" Type="int" Nullable="false" />
+                <Property Name="Expr1" Type="int" Nullable="false" />
+                <Property Name="Expr2" Type="int" Nullable="false" />
+                <Property Name="LOK" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IST" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="KAP" Type="bigint" Nullable="false" />
+                <Property Name="NAZ" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdK" Type="int" Nullable="false" />
+                <Property Name="Expr3" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="uspKlub_Igraci_Treneri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDKlub" Type="int" Mode="In" />
+          <Parameter Name="return_value" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="SportskoDrustvoModelStoreContainer">
+          <EntitySet Name="ClanUpravnogOdbora" EntityType="Self.ClanUpravnogOdbora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GeneralniDirektor" EntityType="Self.GeneralniDirektor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Igrac" EntityType="Self.Igrac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Je" EntityType="Self.Je" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klub" EntityType="Self.Klub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Predsjednik" EntityType="Self.Predsjednik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sacinjava" EntityType="Self.Sacinjava" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SD" EntityType="Self.SD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SportskiDirektor" EntityType="Self.SportskiDirektor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teren" EntityType="Self.Teren" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trener" EntityType="Self.Trener" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trening" EntityType="Self.Trening" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uprava" EntityType="Self.Uprava" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vlada" EntityType="Self.Vlada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PogledKlubTrenerIgraci" EntityType="Self.PogledKlubTrenerIgraci" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PogledKlubTrenerIgraci].[IdK] AS [IdK], 
+    [PogledKlubTrenerIgraci].[BT] AS [BT], 
+    [PogledKlubTrenerIgraci].[SPORT] AS [SPORT], 
+    [PogledKlubTrenerIgraci].[LIG] AS [LIG], 
+    [PogledKlubTrenerIgraci].[IdSD] AS [IdSD], 
+    [PogledKlubTrenerIgraci].[JMBGT] AS [JMBGT], 
+    [PogledKlubTrenerIgraci].[IiP] AS [IiP], 
+    [PogledKlubTrenerIgraci].[BRT] AS [BRT], 
+    [PogledKlubTrenerIgraci].[KAR] AS [KAR], 
+    [PogledKlubTrenerIgraci].[IdKL] AS [IdKL], 
+    [PogledKlubTrenerIgraci].[JMBG] AS [JMBG], 
+    [PogledKlubTrenerIgraci].[IP] AS [IP], 
+    [PogledKlubTrenerIgraci].[KA] AS [KA], 
+    [PogledKlubTrenerIgraci].[DR] AS [DR], 
+    [PogledKlubTrenerIgraci].[IdKlub] AS [IdKlub]
+    FROM [dbo].[PogledKlubTrenerIgraci] AS [PogledKlubTrenerIgraci]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TreningView" EntityType="Self.TreningView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TreningView].[JMBG] AS [JMBG], 
+    [TreningView].[IP] AS [IP], 
+    [TreningView].[KA] AS [KA], 
+    [TreningView].[DR] AS [DR], 
+    [TreningView].[IdKlub] AS [IdKlub], 
+    [TreningView].[IdSD] AS [IdSD], 
+    [TreningView].[IdTR] AS [IdTR], 
+    [TreningView].[TR] AS [TR], 
+    [TreningView].[OT] AS [OT], 
+    [TreningView].[IdT] AS [IdT], 
+    [TreningView].[JMBGTR] AS [JMBGTR], 
+    [TreningView].[JMBGI] AS [JMBGI], 
+    [TreningView].[JMBGT] AS [JMBGT], 
+    [TreningView].[IiP] AS [IiP], 
+    [TreningView].[BRT] AS [BRT], 
+    [TreningView].[KAR] AS [KAR], 
+    [TreningView].[IdKL] AS [IdKL], 
+    [TreningView].[Expr1] AS [Expr1], 
+    [TreningView].[Expr2] AS [Expr2], 
+    [TreningView].[LOK] AS [LOK], 
+    [TreningView].[IST] AS [IST], 
+    [TreningView].[KAP] AS [KAP], 
+    [TreningView].[NAZ] AS [NAZ], 
+    [TreningView].[IdK] AS [IdK], 
+    [TreningView].[Expr3] AS [Expr3]
+    FROM [dbo].[TreningView] AS [TreningView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_GeneralniDirektor_ClanUpravnogOdbora" Association="Self.FK_GeneralniDirektor_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdbora" />
+            <End Role="GeneralniDirektor" EntitySet="GeneralniDirektor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Igrac_Klub" Association="Self.FK_Igrac_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="Igrac" EntitySet="Igrac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Je_ClanUpravnogOdbora" Association="Self.FK_Je_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdbora" />
+            <End Role="Je" EntitySet="Je" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Je_Uprava" Association="Self.FK_Je_Uprava">
+            <End Role="Uprava" EntitySet="Uprava" />
+            <End Role="Je" EntitySet="Je" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Klub_SD" Association="Self.FK_Klub_SD">
+            <End Role="SD" EntitySet="SD" />
+            <End Role="Klub" EntitySet="Klub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Predsjednik_ClanUpravnogOdbora" Association="Self.FK_Predsjednik_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdbora" />
+            <End Role="Predsjednik" EntitySet="Predsjednik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sacinjava_Klub" Association="Self.FK_Sacinjava_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="Sacinjava" EntitySet="Sacinjava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sacinjava_Uprava" Association="Self.FK_Sacinjava_Uprava">
+            <End Role="Uprava" EntitySet="Uprava" />
+            <End Role="Sacinjava" EntitySet="Sacinjava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportskiDirektor_ClanUpravnogOdbora" Association="Self.FK_SportskiDirektor_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdbora" />
+            <End Role="SportskiDirektor" EntitySet="SportskiDirektor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teren_Klub" Association="Self.FK_Teren_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="Teren" EntitySet="Teren" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trener_Klub" Association="Self.FK_Trener_Klub">
+            <End Role="Klub" EntitySet="Klub" />
+            <End Role="Trener" EntitySet="Trener" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trening_Igrac" Association="Self.FK_Trening_Igrac">
+            <End Role="Igrac" EntitySet="Igrac" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trening_Teren" Association="Self.FK_Trening_Teren">
+            <End Role="Teren" EntitySet="Teren" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trening_Trener" Association="Self.FK_Trening_Trener">
+            <End Role="Trener" EntitySet="Trener" />
+            <End Role="Trening" EntitySet="Trening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlada_SD" Association="Self.FK_Vlada_SD">
+            <End Role="SD" EntitySet="SD" />
+            <End Role="Vlada" EntitySet="Vlada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlada_Uprava" Association="Self.FK_Vlada_Uprava">
+            <End Role="Uprava" EntitySet="Uprava" />
+            <End Role="Vlada" EntitySet="Vlada" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportskoDrustvoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="udfKlub_Treneri_Igraci_Result">
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="BT" Type="Int32" Nullable="false" />
+          <Property Name="SPORT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <Property Name="JMBGT" Type="Int64" Nullable="false" />
+          <Property Name="IiP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRT" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdKL" Type="Int32" Nullable="false" />
+          <Property Name="JMBG" Type="Int64" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" />
+          <Property Name="IdKlub" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="udfTeren_Igraci_Result">
+          <Property Name="JMBG" Type="Int64" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" />
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="IdTR" Type="Int32" Nullable="false" />
+          <Property Name="TR" Type="Time" Nullable="false" />
+          <Property Name="OT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdT" Type="Int32" Nullable="false" />
+          <Property Name="JMBGT" Type="Int64" Nullable="false" />
+          <Property Name="JMBGI" Type="Int64" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="udfTeren_Treneri_Result">
+          <Property Name="JMBGT" Type="Int64" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRT" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="IdTR" Type="Int32" Nullable="false" />
+          <Property Name="TR" Type="Time" Nullable="false" />
+          <Property Name="OT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdT" Type="Int32" Nullable="false" />
+          <Property Name="JMBGTR" Type="Int64" Nullable="false" />
+          <Property Name="JMBGI" Type="Int64" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="udfTrening_Result">
+          <Property Name="JMBG" Type="Int64" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" />
+          <Property Name="IdKlub" Type="Int32" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <Property Name="IdTR" Type="Int32" Nullable="false" />
+          <Property Name="TR" Type="Time" Nullable="false" />
+          <Property Name="OT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdT" Type="Int32" Nullable="false" />
+          <Property Name="JMBGTR" Type="Int64" Nullable="false" />
+          <Property Name="JMBGI" Type="Int64" Nullable="false" />
+          <Property Name="JMBGT" Type="Int64" Nullable="false" />
+          <Property Name="IiP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRT" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdKL" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+          <Property Name="LOK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KAP" Type="Int64" Nullable="false" />
+          <Property Name="NAZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="Expr3" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="ClanUpravnogOdbora">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GeneralniDirektor" Relationship="Self.FK_GeneralniDirektor_ClanUpravnogOdbora" FromRole="ClanUpravnogOdbora" ToRole="GeneralniDirektor" />
+          <NavigationProperty Name="Predsjednik" Relationship="Self.FK_Predsjednik_ClanUpravnogOdbora" FromRole="ClanUpravnogOdbora" ToRole="Predsjednik" />
+          <NavigationProperty Name="SportskiDirektor" Relationship="Self.FK_SportskiDirektor_ClanUpravnogOdbora" FromRole="ClanUpravnogOdbora" ToRole="SportskiDirektor" />
+          <NavigationProperty Name="Upravas" Relationship="Self.Je" FromRole="ClanUpravnogOdbora" ToRole="Uprava" />
+        </EntityType>
+        <EntityType Name="GeneralniDirektor">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="Int32" Nullable="false" />
+          <Property Name="US" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClanUpravnogOdbora" Relationship="Self.FK_GeneralniDirektor_ClanUpravnogOdbora" FromRole="GeneralniDirektor" ToRole="ClanUpravnogOdbora" />
+        </EntityType>
+        <EntityType Name="Igrac">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdKlub" Type="Int32" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klub" Relationship="Self.FK_Igrac_Klub" FromRole="Igrac" ToRole="Klub" />
+          <NavigationProperty Name="Trenings" Relationship="SportskoDrustvoModel.FK_Trening_Igrac" FromRole="Igrac" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="Klub">
+          <Key>
+            <PropertyRef Name="IdK" />
+            <PropertyRef Name="IdSD" />
+          </Key>
+          <Property Name="IdK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BT" Type="Int32" Nullable="false" />
+          <Property Name="SPORT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Igracs" Relationship="Self.FK_Igrac_Klub" FromRole="Klub" ToRole="Igrac" />
+          <NavigationProperty Name="SD" Relationship="Self.FK_Klub_SD" FromRole="Klub" ToRole="SD" />
+          <NavigationProperty Name="Sacinjavas" Relationship="Self.FK_Sacinjava_Klub" FromRole="Klub" ToRole="Sacinjava" />
+          <NavigationProperty Name="Terens" Relationship="Self.FK_Teren_Klub" FromRole="Klub" ToRole="Teren" />
+          <NavigationProperty Name="Treners" Relationship="Self.FK_Trener_Klub" FromRole="Klub" ToRole="Trener" />
+        </EntityType>
+        <EntityType Name="Predsjednik">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="Int32" Nullable="false" />
+          <Property Name="TM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ClanUpravnogOdbora" Relationship="Self.FK_Predsjednik_ClanUpravnogOdbora" FromRole="Predsjednik" ToRole="ClanUpravnogOdbora" />
+        </EntityType>
+        <EntityType Name="Sacinjava">
+          <Key>
+            <PropertyRef Name="IdSacinjava" />
+          </Key>
+          <Property Name="IdU" Type="Int32" Nullable="false" />
+          <Property Name="IdK" Type="Int32" />
+          <Property Name="IdSD" Type="Int32" />
+          <Property Name="IdSacinjava" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Klub" Relationship="Self.FK_Sacinjava_Klub" FromRole="Sacinjava" ToRole="Klub" />
+          <NavigationProperty Name="Uprava" Relationship="Self.FK_Sacinjava_Uprava" FromRole="Sacinjava" ToRole="Uprava" />
+        </EntityType>
+        <EntityType Name="SD">
+          <Key>
+            <PropertyRef Name="IdSD" />
+          </Key>
+          <Property Name="IdSD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SJ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DO" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Klubs" Relationship="Self.FK_Klub_SD" FromRole="SD" ToRole="Klub" />
+          <NavigationProperty Name="Vladas" Relationship="Self.FK_Vlada_SD" FromRole="SD" ToRole="Vlada" />
+        </EntityType>
+        <EntityType Name="SportskiDirektor">
+          <Key>
+            <PropertyRef Name="BrCK" />
+          </Key>
+          <Property Name="BrCK" Type="Int32" Nullable="false" />
+          <Property Name="OT" Type="Int32" />
+          <NavigationProperty Name="ClanUpravnogOdbora" Relationship="Self.FK_SportskiDirektor_ClanUpravnogOdbora" FromRole="SportskiDirektor" ToRole="ClanUpravnogOdbora" />
+        </EntityType>
+        <EntityType Name="Teren">
+          <Key>
+            <PropertyRef Name="IdT" />
+          </Key>
+          <Property Name="IdT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KAP" Type="Int64" Nullable="false" />
+          <Property Name="NAZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klub" Relationship="Self.FK_Teren_Klub" FromRole="Teren" ToRole="Klub" />
+          <NavigationProperty Name="Trenings" Relationship="SportskoDrustvoModel.FK_Trening_Teren" FromRole="Teren" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="Trener">
+          <Key>
+            <PropertyRef Name="JMBGT" />
+          </Key>
+          <Property Name="JMBGT" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IiP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRT" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdKL" Type="Int32" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klub" Relationship="Self.FK_Trener_Klub" FromRole="Trener" ToRole="Klub" />
+          <NavigationProperty Name="Trenings" Relationship="SportskoDrustvoModel.FK_Trening_Trener" FromRole="Trener" ToRole="Trening" />
+        </EntityType>
+        <EntityType Name="Trening">
+          <Key>
+            <PropertyRef Name="IdTR" />
+            <PropertyRef Name="JMBGTR" />
+            <PropertyRef Name="JMBGI" />
+          </Key>
+          <Property Name="IdTR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TR" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="OT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdT" Type="Int32" Nullable="false" />
+          <Property Name="JMBGTR" Type="Int64" Nullable="false" />
+          <Property Name="JMBGI" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Igrac" Relationship="SportskoDrustvoModel.FK_Trening_Igrac" FromRole="Trening" ToRole="Igrac" />
+          <NavigationProperty Name="Teren" Relationship="SportskoDrustvoModel.FK_Trening_Teren" FromRole="Trening" ToRole="Teren" />
+          <NavigationProperty Name="Trener" Relationship="SportskoDrustvoModel.FK_Trening_Trener" FromRole="Trening" ToRole="Trener" />
+        </EntityType>
+        <EntityType Name="Uprava">
+          <Key>
+            <PropertyRef Name="IdU" />
+          </Key>
+          <Property Name="IdU" Type="Int32" Nullable="false" />
+          <Property Name="OP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sacinjavas" Relationship="Self.FK_Sacinjava_Uprava" FromRole="Uprava" ToRole="Sacinjava" />
+          <NavigationProperty Name="Vladas" Relationship="Self.FK_Vlada_Uprava" FromRole="Uprava" ToRole="Vlada" />
+          <NavigationProperty Name="ClanUpravnogOdboras" Relationship="Self.Je" FromRole="Uprava" ToRole="ClanUpravnogOdbora" />
+        </EntityType>
+        <EntityType Name="Vlada">
+          <Key>
+            <PropertyRef Name="IdVlada" />
+          </Key>
+          <Property Name="IdU" Type="Int32" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <Property Name="IdVlada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="SD" Relationship="Self.FK_Vlada_SD" FromRole="Vlada" ToRole="SD" />
+          <NavigationProperty Name="Uprava" Relationship="Self.FK_Vlada_Uprava" FromRole="Vlada" ToRole="Uprava" />
+        </EntityType>
+        <EntityType Name="PogledKlubTrenerIgraci">
+          <Key>
+            <PropertyRef Name="IdK" />
+            <PropertyRef Name="BT" />
+            <PropertyRef Name="SPORT" />
+            <PropertyRef Name="LIG" />
+            <PropertyRef Name="IdSD" />
+            <PropertyRef Name="JMBGT" />
+            <PropertyRef Name="IiP" />
+            <PropertyRef Name="BRT" />
+            <PropertyRef Name="KAR" />
+            <PropertyRef Name="IdKL" />
+            <PropertyRef Name="JMBG" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="KA" />
+            <PropertyRef Name="DR" />
+            <PropertyRef Name="IdKlub" />
+          </Key>
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="BT" Type="Int32" Nullable="false" />
+          <Property Name="SPORT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <Property Name="JMBGT" Type="Int64" Nullable="false" />
+          <Property Name="IiP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRT" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdKL" Type="Int32" Nullable="false" />
+          <Property Name="JMBG" Type="Int64" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdKlub" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TreningView">
+          <Key>
+            <PropertyRef Name="JMBG" />
+            <PropertyRef Name="IP" />
+            <PropertyRef Name="KA" />
+            <PropertyRef Name="DR" />
+            <PropertyRef Name="IdKlub" />
+            <PropertyRef Name="IdSD" />
+            <PropertyRef Name="IdTR" />
+            <PropertyRef Name="TR" />
+            <PropertyRef Name="OT" />
+            <PropertyRef Name="IdT" />
+            <PropertyRef Name="JMBGTR" />
+            <PropertyRef Name="JMBGI" />
+            <PropertyRef Name="JMBGT" />
+            <PropertyRef Name="IiP" />
+            <PropertyRef Name="BRT" />
+            <PropertyRef Name="KAR" />
+            <PropertyRef Name="IdKL" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="LOK" />
+            <PropertyRef Name="IST" />
+            <PropertyRef Name="KAP" />
+            <PropertyRef Name="NAZ" />
+            <PropertyRef Name="IdK" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="JMBG" Type="Int64" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DR" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdKlub" Type="Int32" Nullable="false" />
+          <Property Name="IdSD" Type="Int32" Nullable="false" />
+          <Property Name="IdTR" Type="Int32" Nullable="false" />
+          <Property Name="TR" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="OT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdT" Type="Int32" Nullable="false" />
+          <Property Name="JMBGTR" Type="Int64" Nullable="false" />
+          <Property Name="JMBGI" Type="Int64" Nullable="false" />
+          <Property Name="JMBGT" Type="Int64" Nullable="false" />
+          <Property Name="IiP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRT" Type="Int32" Nullable="false" />
+          <Property Name="KAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdKL" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+          <Property Name="LOK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KAP" Type="Int64" Nullable="false" />
+          <Property Name="NAZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdK" Type="Int32" Nullable="false" />
+          <Property Name="Expr3" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GeneralniDirektor_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="GeneralniDirektor" Type="Self.GeneralniDirektor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="GeneralniDirektor">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Predsjednik_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Predsjednik" Type="Self.Predsjednik" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="Predsjednik">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SportskiDirektor_ClanUpravnogOdbora">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SportskiDirektor" Type="Self.SportskiDirektor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClanUpravnogOdbora">
+              <PropertyRef Name="BrCK" />
+            </Principal>
+            <Dependent Role="SportskiDirektor">
+              <PropertyRef Name="BrCK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Igrac_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Igrac" Type="Self.Igrac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Igrac">
+              <PropertyRef Name="IdKlub" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Klub_SD">
+          <End Role="SD" Type="Self.SD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Klub" Type="Self.Klub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SD">
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Klub">
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sacinjava_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sacinjava" Type="Self.Sacinjava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Sacinjava">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teren_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Teren" Type="Self.Teren" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Teren">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trener_Klub">
+          <End Role="Klub" Type="Self.Klub" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Trener" Type="Self.Trener" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klub">
+              <PropertyRef Name="IdK" />
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Trener">
+              <PropertyRef Name="IdKL" />
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sacinjava_Uprava">
+          <End Role="Uprava" Type="Self.Uprava" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Sacinjava" Type="Self.Sacinjava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uprava">
+              <PropertyRef Name="IdU" />
+            </Principal>
+            <Dependent Role="Sacinjava">
+              <PropertyRef Name="IdU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlada_SD">
+          <End Role="SD" Type="Self.SD" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vlada" Type="Self.Vlada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SD">
+              <PropertyRef Name="IdSD" />
+            </Principal>
+            <Dependent Role="Vlada">
+              <PropertyRef Name="IdSD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vlada_Uprava">
+          <End Role="Uprava" Type="Self.Uprava" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vlada" Type="Self.Vlada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uprava">
+              <PropertyRef Name="IdU" />
+            </Principal>
+            <Dependent Role="Vlada">
+              <PropertyRef Name="IdU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Je">
+          <End Role="ClanUpravnogOdbora" Type="Self.ClanUpravnogOdbora" Multiplicity="*" />
+          <End Role="Uprava" Type="Self.Uprava" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SportskoDrustvoEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClanUpravnogOdboras" EntityType="Self.ClanUpravnogOdbora" />
+          <EntitySet Name="GeneralniDirektors" EntityType="Self.GeneralniDirektor" />
+          <EntitySet Name="Igracs" EntityType="Self.Igrac" />
+          <EntitySet Name="Klubs" EntityType="Self.Klub" />
+          <EntitySet Name="Predsjedniks" EntityType="Self.Predsjednik" />
+          <EntitySet Name="Sacinjavas" EntityType="Self.Sacinjava" />
+          <EntitySet Name="SDs" EntityType="Self.SD" />
+          <EntitySet Name="SportskiDirektors" EntityType="Self.SportskiDirektor" />
+          <EntitySet Name="Terens" EntityType="Self.Teren" />
+          <EntitySet Name="Treners" EntityType="Self.Trener" />
+          <EntitySet Name="Trenings" EntityType="Self.Trening" />
+          <EntitySet Name="Upravas" EntityType="Self.Uprava" />
+          <EntitySet Name="Vladas" EntityType="Self.Vlada" />
+          <EntitySet Name="PogledKlubTrenerIgracis" EntityType="Self.PogledKlubTrenerIgraci" />
+          <EntitySet Name="TreningViews" EntityType="Self.TreningView" />
+          <AssociationSet Name="FK_GeneralniDirektor_ClanUpravnogOdbora" Association="Self.FK_GeneralniDirektor_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdboras" />
+            <End Role="GeneralniDirektor" EntitySet="GeneralniDirektors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Predsjednik_ClanUpravnogOdbora" Association="Self.FK_Predsjednik_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdboras" />
+            <End Role="Predsjednik" EntitySet="Predsjedniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SportskiDirektor_ClanUpravnogOdbora" Association="Self.FK_SportskiDirektor_ClanUpravnogOdbora">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdboras" />
+            <End Role="SportskiDirektor" EntitySet="SportskiDirektors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Igrac_Klub" Association="Self.FK_Igrac_Klub">
+            <End Role="Klub" EntitySet="Klubs" />
+            <End Role="Igrac" EntitySet="Igracs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Klub_SD" Association="Self.FK_Klub_SD">
+            <End Role="SD" EntitySet="SDs" />
+            <End Role="Klub" EntitySet="Klubs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sacinjava_Klub" Association="Self.FK_Sacinjava_Klub">
+            <End Role="Klub" EntitySet="Klubs" />
+            <End Role="Sacinjava" EntitySet="Sacinjavas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teren_Klub" Association="Self.FK_Teren_Klub">
+            <End Role="Klub" EntitySet="Klubs" />
+            <End Role="Teren" EntitySet="Terens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trener_Klub" Association="Self.FK_Trener_Klub">
+            <End Role="Klub" EntitySet="Klubs" />
+            <End Role="Trener" EntitySet="Treners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sacinjava_Uprava" Association="Self.FK_Sacinjava_Uprava">
+            <End Role="Uprava" EntitySet="Upravas" />
+            <End Role="Sacinjava" EntitySet="Sacinjavas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlada_SD" Association="Self.FK_Vlada_SD">
+            <End Role="SD" EntitySet="SDs" />
+            <End Role="Vlada" EntitySet="Vladas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vlada_Uprava" Association="Self.FK_Vlada_Uprava">
+            <End Role="Uprava" EntitySet="Upravas" />
+            <End Role="Vlada" EntitySet="Vladas" />
+          </AssociationSet>
+          <AssociationSet Name="Je" Association="Self.Je">
+            <End Role="ClanUpravnogOdbora" EntitySet="ClanUpravnogOdboras" />
+            <End Role="Uprava" EntitySet="Upravas" />
+          </AssociationSet>
+          <FunctionImport Name="udfKlub_Treneri_Igraci" IsComposable="true" ReturnType="Collection(SportskoDrustvoModel.udfKlub_Treneri_Igraci_Result)">
+          <Parameter Name="IDKlub" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="udfTeren_Igraci" IsComposable="true" ReturnType="Collection(SportskoDrustvoModel.udfTeren_Igraci_Result)">
+          <Parameter Name="IDTeren" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="udfTeren_Treneri" IsComposable="true" ReturnType="Collection(SportskoDrustvoModel.udfTeren_Treneri_Result)">
+          <Parameter Name="IDTeren" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="udfTrening" IsComposable="true" ReturnType="Collection(SportskoDrustvoModel.udfTrening_Result)">
+          <Parameter Name="IDTrening" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspKlub_Igraci_Treneri">
+            <Parameter Name="IDKlub" Mode="In" Type="Int32" />
+            <Parameter Name="return_value" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_Trening_Igrac" Association="SportskoDrustvoModel.FK_Trening_Igrac">
+            <End Role="Igrac" EntitySet="Igracs" />
+            <End Role="Trening" EntitySet="Trenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trening_Teren" Association="SportskoDrustvoModel.FK_Trening_Teren">
+            <End Role="Teren" EntitySet="Terens" />
+            <End Role="Trening" EntitySet="Trenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trening_Trener" Association="SportskoDrustvoModel.FK_Trening_Trener">
+            <End Role="Trener" EntitySet="Treners" />
+            <End Role="Trening" EntitySet="Trenings" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_Trening_Igrac">
+          <End Type="SportskoDrustvoModel.Igrac" Role="Igrac" Multiplicity="1" />
+          <End Type="SportskoDrustvoModel.Trening" Role="Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Igrac">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="JMBGI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trening_Teren">
+          <End Type="SportskoDrustvoModel.Teren" Role="Teren" Multiplicity="1" />
+          <End Type="SportskoDrustvoModel.Trening" Role="Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teren">
+              <PropertyRef Name="IdT" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="IdT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trening_Trener">
+          <End Type="SportskoDrustvoModel.Trener" Role="Trener" Multiplicity="1" />
+          <End Type="SportskoDrustvoModel.Trening" Role="Trening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trener">
+              <PropertyRef Name="JMBGT" />
+            </Principal>
+            <Dependent Role="Trening">
+              <PropertyRef Name="JMBGTR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SportskoDrustvoModelStoreContainer" CdmEntityContainer="SportskoDrustvoEntities2">
+          <EntitySetMapping Name="ClanUpravnogOdboras">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.ClanUpravnogOdbora">
+              <MappingFragment StoreEntitySet="ClanUpravnogOdbora">
+                <ScalarProperty Name="BrCK" ColumnName="BrCK" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="SS" ColumnName="SS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GeneralniDirektors">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.GeneralniDirektor">
+              <MappingFragment StoreEntitySet="GeneralniDirektor">
+                <ScalarProperty Name="BrCK" ColumnName="BrCK" />
+                <ScalarProperty Name="US" ColumnName="US" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Igracs">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Igrac">
+              <MappingFragment StoreEntitySet="Igrac">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="KA" ColumnName="KA" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klubs">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Klub">
+              <MappingFragment StoreEntitySet="Klub">
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="BT" ColumnName="BT" />
+                <ScalarProperty Name="SPORT" ColumnName="SPORT" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Predsjedniks">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Predsjednik">
+              <MappingFragment StoreEntitySet="Predsjednik">
+                <ScalarProperty Name="BrCK" ColumnName="BrCK" />
+                <ScalarProperty Name="TM" ColumnName="TM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sacinjavas">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Sacinjava">
+              <MappingFragment StoreEntitySet="Sacinjava">
+                <ScalarProperty Name="IdU" ColumnName="IdU" />
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="IdSacinjava" ColumnName="IdSacinjava" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SDs">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.SD">
+              <MappingFragment StoreEntitySet="SD">
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="NAZ" ColumnName="NAZ" />
+                <ScalarProperty Name="SJ" ColumnName="SJ" />
+                <ScalarProperty Name="DO" ColumnName="DO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SportskiDirektors">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.SportskiDirektor">
+              <MappingFragment StoreEntitySet="SportskiDirektor">
+                <ScalarProperty Name="BrCK" ColumnName="BrCK" />
+                <ScalarProperty Name="OT" ColumnName="OT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terens">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Teren">
+              <MappingFragment StoreEntitySet="Teren">
+                <ScalarProperty Name="IdT" ColumnName="IdT" />
+                <ScalarProperty Name="LOK" ColumnName="LOK" />
+                <ScalarProperty Name="IST" ColumnName="IST" />
+                <ScalarProperty Name="KAP" ColumnName="KAP" />
+                <ScalarProperty Name="NAZ" ColumnName="NAZ" />
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Treners">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Trener">
+              <MappingFragment StoreEntitySet="Trener">
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="IiP" ColumnName="IiP" />
+                <ScalarProperty Name="BRT" ColumnName="BRT" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="IdKL" ColumnName="IdKL" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trenings">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Trening">
+              <MappingFragment StoreEntitySet="Trening">
+                <ScalarProperty Name="IdTR" ColumnName="IdTR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="OT" ColumnName="OT" />
+                <ScalarProperty Name="IdT" ColumnName="IdT" />
+                <ScalarProperty Name="JMBGTR" ColumnName="JMBGTR" />
+                <ScalarProperty Name="JMBGI" ColumnName="JMBGI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Upravas">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Uprava">
+              <MappingFragment StoreEntitySet="Uprava">
+                <ScalarProperty Name="IdU" ColumnName="IdU" />
+                <ScalarProperty Name="OP" ColumnName="OP" />
+                <ScalarProperty Name="LOK" ColumnName="LOK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vladas">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.Vlada">
+              <MappingFragment StoreEntitySet="Vlada">
+                <ScalarProperty Name="IdU" ColumnName="IdU" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="IdVlada" ColumnName="IdVlada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PogledKlubTrenerIgracis">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.PogledKlubTrenerIgraci">
+              <MappingFragment StoreEntitySet="PogledKlubTrenerIgraci">
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="BT" ColumnName="BT" />
+                <ScalarProperty Name="SPORT" ColumnName="SPORT" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="IiP" ColumnName="IiP" />
+                <ScalarProperty Name="BRT" ColumnName="BRT" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="IdKL" ColumnName="IdKL" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="KA" ColumnName="KA" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TreningViews">
+            <EntityTypeMapping TypeName="SportskoDrustvoModel.TreningView">
+              <MappingFragment StoreEntitySet="TreningView">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="KA" ColumnName="KA" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="IdTR" ColumnName="IdTR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="OT" ColumnName="OT" />
+                <ScalarProperty Name="IdT" ColumnName="IdT" />
+                <ScalarProperty Name="JMBGTR" ColumnName="JMBGTR" />
+                <ScalarProperty Name="JMBGI" ColumnName="JMBGI" />
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="IiP" ColumnName="IiP" />
+                <ScalarProperty Name="BRT" ColumnName="BRT" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="IdKL" ColumnName="IdKL" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="LOK" ColumnName="LOK" />
+                <ScalarProperty Name="IST" ColumnName="IST" />
+                <ScalarProperty Name="KAP" ColumnName="KAP" />
+                <ScalarProperty Name="NAZ" ColumnName="NAZ" />
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Je" TypeName="SportskoDrustvoModel.Je" StoreEntitySet="Je">
+            <EndProperty Name="ClanUpravnogOdbora">
+              <ScalarProperty Name="BrCK" ColumnName="BrCK" />
+            </EndProperty>
+            <EndProperty Name="Uprava">
+              <ScalarProperty Name="IdU" ColumnName="IdU" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionName="SportskoDrustvoModel.Store.udfKlub_Treneri_Igraci" FunctionImportName="udfKlub_Treneri_Igraci">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SportskoDrustvoModel.udfKlub_Treneri_Igraci_Result">
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="BT" ColumnName="BT" />
+                <ScalarProperty Name="SPORT" ColumnName="SPORT" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="IiP" ColumnName="IiP" />
+                <ScalarProperty Name="BRT" ColumnName="BRT" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="IdKL" ColumnName="IdKL" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="KA" ColumnName="KA" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="SportskoDrustvoModel.Store.udfTeren_Igraci" FunctionImportName="udfTeren_Igraci">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SportskoDrustvoModel.udfTeren_Igraci_Result">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="KA" ColumnName="KA" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="IdTR" ColumnName="IdTR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="OT" ColumnName="OT" />
+                <ScalarProperty Name="IdT" ColumnName="IdT" />
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="JMBGI" ColumnName="JMBGI" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="SportskoDrustvoModel.Store.udfTeren_Treneri" FunctionImportName="udfTeren_Treneri">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SportskoDrustvoModel.udfTeren_Treneri_Result">
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="BRT" ColumnName="BRT" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="IdTR" ColumnName="IdTR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="OT" ColumnName="OT" />
+                <ScalarProperty Name="IdT" ColumnName="IdT" />
+                <ScalarProperty Name="JMBGTR" ColumnName="JMBGTR" />
+                <ScalarProperty Name="JMBGI" ColumnName="JMBGI" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="SportskoDrustvoModel.Store.udfTrening" FunctionImportName="udfTrening">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SportskoDrustvoModel.udfTrening_Result">
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="KA" ColumnName="KA" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="IdKlub" ColumnName="IdKlub" />
+                <ScalarProperty Name="IdSD" ColumnName="IdSD" />
+                <ScalarProperty Name="IdTR" ColumnName="IdTR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="OT" ColumnName="OT" />
+                <ScalarProperty Name="IdT" ColumnName="IdT" />
+                <ScalarProperty Name="JMBGTR" ColumnName="JMBGTR" />
+                <ScalarProperty Name="JMBGI" ColumnName="JMBGI" />
+                <ScalarProperty Name="JMBGT" ColumnName="JMBGT" />
+                <ScalarProperty Name="IiP" ColumnName="IiP" />
+                <ScalarProperty Name="BRT" ColumnName="BRT" />
+                <ScalarProperty Name="KAR" ColumnName="KAR" />
+                <ScalarProperty Name="IdKL" ColumnName="IdKL" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="LOK" ColumnName="LOK" />
+                <ScalarProperty Name="IST" ColumnName="IST" />
+                <ScalarProperty Name="KAP" ColumnName="KAP" />
+                <ScalarProperty Name="NAZ" ColumnName="NAZ" />
+                <ScalarProperty Name="IdK" ColumnName="IdK" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspKlub_Igraci_Treneri" FunctionName="SportskoDrustvoModel.Store.uspKlub_Igraci_Treneri" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
